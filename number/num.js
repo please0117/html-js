@@ -9,6 +9,7 @@ var guessField = document.querySelector(".guessField");
 
 var guessCount = 1;
 var resetButton;
+var error = false;
 
 function CheckGuess(){
     var userGuess = Number(guessField.value);
@@ -28,6 +29,11 @@ function CheckGuess(){
         lastResult.style.backgroundColor = "grey";
         setGameover();
     }
+    else if(guessCount > 100 || guessCount < 0){
+        lastResult.textContent = "Please enter number between 1 and 100"
+        lastResult.style.backgroundColor = "gray";
+        error = true;
+    }
     else{
         lastResult.textContent = "Wrong!"; 
         lastResult.style.backgroundColor = "red";
@@ -38,7 +44,7 @@ function CheckGuess(){
             lowOrHi.textContent = "Last Guess was too high";
         }
     }
-    guessCount++;
+    if (!error) guessCount++;
     guessField.value = " ";
     guessField.focus();
 }
