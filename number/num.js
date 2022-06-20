@@ -9,42 +9,43 @@ var guessField = document.querySelector(".guessField");
 
 var guessCount = 1;
 var resetButton;
-var error = false;
 
 function CheckGuess(){
     var userGuess = Number(guessField.value);
-    if(guessCount === 1){
-        guesses.textContent = "Previous guesses: ";
-    }
-    guesses.textContent += userGuess + " ";
-
-    if(userGuess === randomNumber){
-        lastResult.textContent = "Congratulations! You got it right!";
-        lastResult.style.backgroundColor = "green";
-        lowOrHi.textContent = " ";
-        setGameover();
-    }
-    else if(guessCount === 10){
-        lastResult.textContent = "GameOver!";
-        lastResult.style.backgroundColor = "grey";
-        setGameover();
-    }
-    else if(userGuess > 100 || userGuess < 0){
+    if(userGuess > 100 | userGuess < 0){
         lastResult.textContent = "Please enter number between 1 and 100"
         lastResult.style.backgroundColor = "gray";
-        error = true;
     }
     else{
-        lastResult.textContent = "Wrong!"; 
-        lastResult.style.backgroundColor = "red";
-        if(userGuess < randomNumber){
-            lowOrHi.textContent = "Last Guess was too low";
+        if(guessCount === 1){
+            guesses.textContent = "Previous guesses: ";
         }
-        else if(userGuess > randomNumber){
-            lowOrHi.textContent = "Last Guess was too high";
+        guesses.textContent += userGuess + " ";
+    
+        if(userGuess === randomNumber){
+            lastResult.textContent = "Congratulations! You got it right!";
+            lastResult.style.backgroundColor = "green";
+            lowOrHi.textContent = " ";
+            setGameover();
         }
+        else if(guessCount === 10){
+            lastResult.textContent = "GameOver!";
+            lastResult.style.backgroundColor = "grey";
+            setGameover();
+        }
+        else{
+            lastResult.textContent = "Wrong!"; 
+            lastResult.style.backgroundColor = "red";
+            if(userGuess < randomNumber){
+                lowOrHi.textContent = "Last Guess was too low";
+            }
+            else if(userGuess > randomNumber){
+                lowOrHi.textContent = "Last Guess was too high";
+            }
+        }
+        guessCount++;
     }
-    if (!error) guessCount++;
+    
     guessField.value = " ";
     guessField.focus();
 }
