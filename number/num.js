@@ -13,7 +13,7 @@ var resetButton;
 function CheckGuess(){
     var userGuess = Number(guessField.value);
     if(userGuess > 100 | userGuess < 0){
-        lastResult.textContent = "Please enter number between 1 and 100"
+        lastResult.textContent = "Please enter number between 1 and 100";
         lastResult.style.backgroundColor = "gray";
     }
     else{
@@ -45,7 +45,6 @@ function CheckGuess(){
         }
         guessCount++;
     }
-    
     guessField.value = " ";
     guessField.focus();
 }
