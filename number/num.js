@@ -29,7 +29,7 @@ function CheckGuess(){
         lastResult.style.backgroundColor = "grey";
         setGameover();
     }
-    else if(guessCount > 100 || guessCount < 0){
+    else if(userGuess > 100 || userGuess < 0){
         lastResult.textContent = "Please enter number between 1 and 100"
         lastResult.style.backgroundColor = "gray";
         error = true;
