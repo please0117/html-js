@@ -3,16 +3,25 @@ var message = document.querySelector(".message");
 var press = document.querySelector(".press");
 
 const btn = document.querySelector('button');
+function change_red(){
+    message.style.color = "red";
+    message.style.fontWeight = "900";
+    message.style.fontSize = "30px";
+    message.style.textAlign = "center";
+}
+function change_black(){
+    message.style.color = "black";
+    message.style.fontWeight = "450";
+    message.style.fontSize = "15px";
+    message.style.textAlign = "left";
+}
 btn.onclick = function(){
     button_press++;
     
     press.textContent = "you just pressed " + button_press + " times!";
     if(button_press >= 200){
         message.textContent = "STOP";
-        message.style.color = "red";
-        message.style.fontWeight = "900";
-        message.style.fontSize = "30px";
-        message.style.textAlign = "center";
+        change_red();
         btn.disabled = true;
     }
     else if(button_press >= 100){
@@ -35,6 +44,7 @@ btn.onclick = function(){
     }
     else if (button_press >= 10){
         message.textContent = "is this fun?";
+
     }    
 }
 
