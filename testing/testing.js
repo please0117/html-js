@@ -44,7 +44,7 @@ btn.onclick = function(){
     }
     else if (button_press >= 10){
         message.textContent = "is this fun?";
-
+        change_black();
     }    
 }
 
