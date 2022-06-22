@@ -33,8 +33,8 @@ btn.onclick = function(){
                 button_press = 0;
                 message.textContent = "";
                 press.textContent = "";
-                this.remove()
                 btn.disabled = false;
+                this.remove()
             }
             document.body.appendChild(btn2);
         }   
