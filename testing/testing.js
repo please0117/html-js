@@ -13,7 +13,7 @@ btn.onclick = function(){
         message.style.fontWeight = "900";
         message.style.fontSize = "30px";
         message.style.textAlign = "center";
-        btn.disabled = "true";
+        btn.disabled = true;
     }
     else if(button_press >= 100){
         message.textContent = "OK, you need to stop";
@@ -25,7 +25,7 @@ btn.onclick = function(){
                 message.textContent = "";
                 press.textContent = "";
                 this.remove()
-                btn.disabled = "false";
+                btn.disabled = false;
             }
             document.body.appendChild(btn2);
         }   
