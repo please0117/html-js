@@ -3,12 +3,14 @@ var randomNumber = Math.floor(Math.random() * 100) + 1;
 var guesses = document.querySelector(".guesses");
 var lastResult = document.querySelector(".lastResult");
 var lowOrHi = document.querySelector(".lowOrHi");
+var bestResult = document.querySelector(".bestResult");
 
 var guessSubmit = document.querySelector(".guessSubmit");
 var guessField = document.querySelector(".guessField");
 
 var guessCount = 1;
 var resetButton;
+var bestRecord = 0;
 
 function CheckGuess(){
     var userGuess = Number(guessField.value);
@@ -26,6 +28,9 @@ function CheckGuess(){
             lastResult.textContent = "Congratulations! You got it right!";
             lastResult.style.backgroundColor = "green";
             lowOrHi.textContent = " ";
+            if(bestRecord == 0 || bestRecord > guessCount){
+                bestRecord = guessCount;
+            }
             setGameover();
         }
         else if(guessCount === 10){
@@ -53,6 +58,7 @@ guessSubmit.addEventListener('click', CheckGuess);
 function setGameover(){
     guessField.disabled = "true";
     guessSubmit.disabled = "true";
+    bestResult.textContent = "Best Score : " + bestRecord;
     resetButton = document.createElement("button");
     resetButton.textContent = "start a new game";
     document.body.appendChild(resetButton);

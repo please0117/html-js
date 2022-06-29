@@ -1,3 +1,7 @@
+const btn1 = document.querySelector('.greeting');
+const btn2 = document.querySelector('.bio');
+const btn3 = document.querySelector('.farewell');
+
 function Person(first, last, age, gender, interests){
     this.name = {
         'first': first,
@@ -27,14 +31,17 @@ function Person(first, last, age, gender, interests){
         + string + ".");
     }
 }
-Person.prototype.farewell = function(){
-    alert(this.name.first + " has left the building. Bye for now!");
-}
-Person.prototype.greeting = function(){
-    alert("Hi, I'm " + this.name.first + " " + this.name.last + ".");
-}
 
 var person1 = new Person("Bob", "Smith", 32, "male", ["music", "skiing", "dancing", "reading"]);
 
-const btn = document.querySelector('button');
-btn.onclick = person1.farewell();
+btn1.onclick = function(){
+    alert("Hi, I'm " + person1.name.first + " " + person1.name.last + "!");
+}
+
+btn2.onclick = function(){
+    person1.bio();
+}
+
+btn3.onclick =  function(){
+    alert(person1.name.first + " has left the building. Bye for now!");
+}
